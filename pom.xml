@@ -25,9 +25,9 @@
   <packaging>pom</packaging>
   <modules>
     <module>icarus-example</module>
-    <module>icarus-intern-runtime</module>
     <module>icarus-abstract-cache</module>
     <module>icarus-core</module>
+    <module>icarus-internal</module>
   </modules>
 
 
