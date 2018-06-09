@@ -18,7 +18,12 @@ package io.github.icarus;
 
 import io.github.icarus.cache.Cache;
 
-public class Icarus {
+public final class Icarus {
+
+  private Icarus() throws IllegalAccessException {
+    throw new IllegalAccessException(
+        String.format("The %s class may not be constructed", this.getClass().getName()));
+  }
 
   public static Cache getNamedCache(final String name) {
     return null;
