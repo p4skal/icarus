@@ -25,14 +25,15 @@
     <version>1.0</version>
   </parent>
 
-  <artifactId>icarus-api</artifactId>
+  <artifactId>icarus-core</artifactId>
 
   <dependencies>
     <dependency>
-      <groupId>org.ehcache</groupId>
-      <artifactId>ehcache</artifactId>
-      <version>3.5.2</version>
+      <groupId>io.github.icarus</groupId>
+      <artifactId>icarus-abstract-cache</artifactId>
+      <version>1.0</version>
     </dependency>
   </dependencies>
+
 
 </project>

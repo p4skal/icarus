@@ -25,12 +25,12 @@
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
-  <artifactId>icarus-example</artifactId>
+  <artifactId>carus-example</artifactId>
 
   <dependencies>
     <dependency>
       <groupId>io.github.icarus</groupId>
-      <artifactId>icarus-api</artifactId>
+      <artifactId>icarus-core</artifactId>
       <version>1.0</version>
     </dependency>
   </dependencies>
