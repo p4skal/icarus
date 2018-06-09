@@ -1,4 +1,4 @@
-<div align="center"><img data-canonical-src="https://farm2.static.flickr.com/1147/4598231157_ec7ed25cfc_b.jpg" width="200" height="300" /></div> 
+![Picture](https://farm2.static.flickr.com/1147/4598231157_ec7ed25cfc_b.jpg)
 
 # The Icarus Framework
 
