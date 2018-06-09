@@ -27,5 +27,12 @@
 
   <artifactId>icarus-example</artifactId>
 
+  <dependencies>
+    <dependency>
+      <groupId>io.github.icarus</groupId>
+      <artifactId>icarus-api</artifactId>
+      <version>1.0</version>
+    </dependency>
+  </dependencies>
 
 </project>
