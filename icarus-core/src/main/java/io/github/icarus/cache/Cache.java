@@ -16,5 +16,6 @@
 
 package io.github.icarus.cache;
 
-//TODO: Define the caching protocol
-public interface Cache {}
+public class Cache {
+
+}
