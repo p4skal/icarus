@@ -22,13 +22,29 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
+/**
+ * Annotation that enables the caching of a methods result value.
+ *
+ * @see CachedBy
+ * @see Expires
+ * @author Merlin Osayimwen
+ * @author Paskal
+ * @since 1.0
+ */
 @Documented
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Cached {
 
   /**
-   * Name of Cache.
+   * Value of the {@code Cached} annotation that resembles the cache used to store the annotated
+   * methods result value.
+   *
+   * <p>When multiple methods use the same cache to store their result value, they need to specify
+   * it.
+   *
+   * @see io.github.icarus.Icarus#getNamedCache(String)
+   * @return Name of the cache that is being used to store the result value.
    */
   String value() default "";
 }
