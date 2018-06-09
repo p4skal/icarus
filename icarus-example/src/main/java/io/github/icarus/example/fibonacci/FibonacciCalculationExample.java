@@ -34,7 +34,8 @@ public final class FibonacciCalculationExample {
   private FibonacciCalculationExample() {}
 
   private static final CalculationApproach CALCULATION_APPROACH = CalculationApproach.RECURSIVE;
-  private static final IntStream CALCULATION_DEPTH_ENTRIES = IntStream.of(100, 500, 1000);
+
+  private static final IntStream CALCULATION_DEPTH_ENTRIES = IntStream.of(5, 10, 15);
 
   public static void main(final String... arguments) {
     // The FibonacciCalculator uses Icarus caching to cache the result
