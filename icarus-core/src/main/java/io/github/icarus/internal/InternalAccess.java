@@ -16,6 +16,6 @@
 
 package io.github.icarus.internal;
 
-public class InternalIcarus {
+public final class InternalAccess {
 
 }
