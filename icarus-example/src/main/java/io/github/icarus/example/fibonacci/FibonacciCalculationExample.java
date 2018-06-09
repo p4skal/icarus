@@ -20,22 +20,36 @@ import io.github.icarus.example.fibonacci.FibonacciCalculator.CalculationApproac
 import java.util.function.IntFunction;
 import java.util.stream.IntStream;
 
+/**
+ * Runs a calculation that generates fibonacci sequences and prints the results.
+ *
+ * <p>Simple example of how to use the Icarus framework.
+ *
+ * @author Merlin Osayimwen
+ * @see FibonacciCalculator
+ * @since 1.0
+ */
 public final class FibonacciCalculationExample {
+
+  private FibonacciCalculationExample() {}
 
   private static final CalculationApproach CALCULATION_APPROACH = CalculationApproach.RECURSIVE;
   private static final IntStream CALCULATION_DEPTH_ENTRIES = IntStream.of(100, 500, 1000);
 
   public static void main(final String... arguments) {
+    // The FibonacciCalculator uses Icarus caching to cache the result
+    // of fibonacci sequences which are calculated.
     final FibonacciCalculator calculator = FibonacciCalculator.create();
 
-    final IntFunction<String> mapperFunction =
-        entry ->
-            String.format(
-                "The Fib of (%d) is: %d",
-                entry,
-                calculator.calculate(
-                    entry, FibonacciCalculationExample.CALCULATION_APPROACH));
+    // Maps the depth entry to its fibonacci.
+    final IntFunction<Long> fibCalculatorFunction =
+        entry -> calculator.calculate(entry, FibonacciCalculationExample.CALCULATION_APPROACH);
 
+    // Maps the entries and their fibonacci results to a string.
+    final IntFunction<String> mapperFunction =
+        entry -> String.format("The Fib of (%d) is: %d", entry, fibCalculatorFunction.apply(entry));
+
+    // Simply maps the entries and applies logs them.
     FibonacciCalculationExample.CALCULATION_DEPTH_ENTRIES
         .mapToObj(mapperFunction)
         .forEach(System.out::println);
