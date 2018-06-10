@@ -27,6 +27,7 @@
     <module>icarus-example</module>
     <module>icarus-core</module>
     <module>icarus-extension</module>
+    <module>icarus-api</module>
   </modules>
 
 

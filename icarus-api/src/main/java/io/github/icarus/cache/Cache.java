@@ -14,20 +14,8 @@
  * limitations under the License.
  */
 
-package io.github.icarus.internal;
+package io.github.icarus.cache;
 
-import javassist.CtMethod;
-import javassist.CtNewMethod;
+public interface Cache {
 
-final class InternalMethodTransformer {
-
-  private InternalMethodTransformer() {}
-
-  void transform(final CtMethod method) {
-
-  }
-
-  static InternalMethodTransformer create() {
-    return new InternalMethodTransformer();
-  }
 }

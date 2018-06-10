@@ -14,20 +14,9 @@
  * limitations under the License.
  */
 
-package io.github.icarus.internal;
+package io.github.icarus.extension.guava;
 
-import javassist.CtMethod;
-import javassist.CtNewMethod;
+import io.github.icarus.module.CacheModule;
 
-final class InternalMethodTransformer {
-
-  private InternalMethodTransformer() {}
-
-  void transform(final CtMethod method) {
-
-  }
-
-  static InternalMethodTransformer create() {
-    return new InternalMethodTransformer();
-  }
-}
+@CacheModule
+public class IcarusGuavaCollectModule {}

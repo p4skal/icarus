@@ -14,20 +14,12 @@
  * limitations under the License.
  */
 
-package io.github.icarus.internal;
+package io.github.icarus.module;
 
-import javassist.CtMethod;
-import javassist.CtNewMethod;
+public @interface ReviseEntry {
 
-final class InternalMethodTransformer {
+  EntryDirection value() default EntryDirection.BOTH;
 
-  private InternalMethodTransformer() {}
+  OrderingPreference order() default OrderingPreference.NONE;
 
-  void transform(final CtMethod method) {
-
-  }
-
-  static InternalMethodTransformer create() {
-    return new InternalMethodTransformer();
-  }
 }

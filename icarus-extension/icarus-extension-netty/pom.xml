@@ -20,23 +20,17 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <artifactId>icarus-parent</artifactId>
+    <artifactId>icarus-extension</artifactId>
     <groupId>io.github.icarus</groupId>
     <version>1.0</version>
   </parent>
-  <artifactId>icarus-extension</artifactId>
-  <packaging>pom</packaging>
 
-  <modules>
-    <module>icarus-extension-guava</module>
-    <module>icarus-extension-netty</module>
-  </modules>
-
+  <artifactId>icarus-extension-netty</artifactId>
   <dependencies>
     <dependency>
-      <groupId>io.github.icarus</groupId>
-      <artifactId>icarus-api</artifactId>
-      <version>1.0</version>
+      <groupId>io.netty</groupId>
+      <artifactId>netty-buffer</artifactId>
+      <version>4.1.24.Final</version>
     </dependency>
   </dependencies>
 

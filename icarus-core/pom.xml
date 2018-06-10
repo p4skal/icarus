@@ -39,9 +39,9 @@
       <version>3.12.1.GA</version>
     </dependency>
     <dependency>
-      <groupId>com.google.guava</groupId>
-      <artifactId>guava-base</artifactId>
-      <version>r03</version>
+      <groupId>io.github.icarus</groupId>
+      <artifactId>icarus-api</artifactId>
+      <version>1.0</version>
     </dependency>
   </dependencies>
 

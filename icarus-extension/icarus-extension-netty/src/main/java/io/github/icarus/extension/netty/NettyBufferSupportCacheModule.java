@@ -14,6 +14,19 @@
  * limitations under the License.
  */
 
-package io.github.icarus.cache;
+package io.github.icarus.extension.netty;
 
-public interface Cache {}
+import io.github.icarus.module.CacheModule;
+import io.github.icarus.module.EntryDirection;
+import io.github.icarus.module.OrderingPreference;
+import io.github.icarus.module.ReviseEntry;
+import io.netty.buffer.ByteBuf;
+
+@CacheModule
+final class NettyBufferSupportCacheModule {
+
+  @ReviseEntry(value = EntryDirection.INCOMING, order = OrderingPreference.EARLY)
+  final byte[] unwrapAndCopyByteBuf(final ByteBuf origin) {
+    return origin.array().clone();
+  }
+}

@@ -14,20 +14,12 @@
  * limitations under the License.
  */
 
-package io.github.icarus.internal;
+package io.github.icarus.module;
 
-import javassist.CtMethod;
-import javassist.CtNewMethod;
-
-final class InternalMethodTransformer {
-
-  private InternalMethodTransformer() {}
-
-  void transform(final CtMethod method) {
-
-  }
-
-  static InternalMethodTransformer create() {
-    return new InternalMethodTransformer();
-  }
+public enum OrderingPreference {
+  FIRST,
+  EARLY,
+  NONE,
+  LATER,
+  LAST
 }

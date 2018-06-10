@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package io.github.icarus.annotation;
+package io.github.icarus;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;

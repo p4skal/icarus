@@ -14,20 +14,12 @@
  * limitations under the License.
  */
 
-package io.github.icarus.internal;
+package io.github.icarus.module;
 
-import javassist.CtMethod;
-import javassist.CtNewMethod;
+public enum EntryDirection {
 
-final class InternalMethodTransformer {
+  INCOMING,
+  OUTGOING,
+  BOTH;
 
-  private InternalMethodTransformer() {}
-
-  void transform(final CtMethod method) {
-
-  }
-
-  static InternalMethodTransformer create() {
-    return new InternalMethodTransformer();
-  }
 }

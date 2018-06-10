@@ -16,7 +16,7 @@
 
 package io.github.icarus.internal;
 
-import io.github.icarus.annotation.Cached;
+import io.github.icarus.Cached;
 import java.util.stream.Stream;
 import javassist.CtClass;
 import javassist.CtMethod;

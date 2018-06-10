@@ -14,30 +14,21 @@
  * limitations under the License.
  */
 
-package io.github.icarus.annotation;
+package io.github.icarus;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
+import java.util.concurrent.TimeUnit;
 
-/**
- * Marks one or more parameters that are used as keys when caching their methods result.
- *
- * <p>When a parameterized method is already marked with the {@code Cached} annotation and it has
- * parameters which should be ignored when mapping the result value to the cache, this annotation is
- * needed. The absence of the {@code CachedBy} annotation will result in every parameter of the
- * method to be used.
- *
- * @see Cached
- * @since 1.0
- * @author Merlin Osayimwen
- */
 @Documented
+@Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.PARAMETER)
-public @interface CachedBy {
+public @interface Expires {
 
-  String[] value() default {};
+  long value();
+
+  TimeUnit timeUnit() default TimeUnit.SECONDS;
 }
