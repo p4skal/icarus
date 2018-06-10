@@ -31,3 +31,11 @@ dependencies {
 }
 ```
 
+Common Pitfalls
+--
+Using *Icarus* will introduce some pitfalls to you application. The framework does only take account
+the parameters of your method. Variables of the instance that the method is invoked one will simply 
+be ignored. Even though clearing of the cache is an opportunity when an important variable of your object
+has changed, you should try to only cache results which are only calculated based on their arguments
+and not some mutable state of their object. 
+
