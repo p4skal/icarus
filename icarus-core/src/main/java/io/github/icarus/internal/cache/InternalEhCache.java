@@ -18,6 +18,6 @@ package io.github.icarus.internal.cache;
 
 import io.github.icarus.cache.Cache;
 
-public class InternalEhCache implements Cache {
+final class InternalEhCache implements Cache {
 
 }
