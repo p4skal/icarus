@@ -1,6 +1,6 @@
 [![Picture](https://orig00.deviantart.net/913a/f/2013/007/c/1/icarus_sketch_by_insomniacattack-d5qszxs.png)]()
 
-# The Icarus Framework
+# The Icarus Framework (WIP)
 
 [![Java Version](https://img.shields.io/badge/java-v1.8-blue.svg)](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 [![Latest](https://img.shields.io/badge/latest-v1.0-blue.svg)](https://github.com/merlinosayimwen/icarus)
