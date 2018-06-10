@@ -24,7 +24,7 @@ import java.util.stream.Stream;
 import javassist.ClassPool;
 import javassist.CtClass;
 
-public class InternalClassFileTransformer implements ClassFileTransformer {
+final class InternalClassFileTransformer implements ClassFileTransformer {
 
   private final InternalMethodApprover methodApprover;
   private final InternalMethodTransformer methodTransformer;
