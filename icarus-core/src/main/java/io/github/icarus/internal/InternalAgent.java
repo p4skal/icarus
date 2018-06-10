@@ -20,6 +20,8 @@ import java.lang.instrument.Instrumentation;
 
 final class InternalAgent {
 
+  private InternalAgent() {}
+
   private static void premain(final String arguments, final Instrumentation instrumentation) {
     instrumentation.addTransformer(InternalClassFileTransformer.create());
   }
