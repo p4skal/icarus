@@ -26,15 +26,15 @@ import javassist.CtClass;
 
 final class InternalClassFileTransformer implements ClassFileTransformer {
 
-  private final InternalMethodApprover methodApprover;
+  private final InternalMethodValidator methodApprover;
   private final InternalMethodTransformer methodTransformer;
 
   private InternalClassFileTransformer() {
-    this(InternalMethodApprover.create(), InternalMethodTransformer.create());
+    this(InternalMethodValidator.create(), InternalMethodTransformer.create());
   }
 
   private InternalClassFileTransformer(
-      final InternalMethodApprover methodApprover,
+      final InternalMethodValidator methodApprover,
       final InternalMethodTransformer methodTransformer) {
 
     this.methodApprover = methodApprover;
@@ -58,7 +58,7 @@ final class InternalClassFileTransformer implements ClassFileTransformer {
       CtClass compiledClass = pool.get(className);
 
       Stream.of(compiledClass.getDeclaredMethods())
-          .filter(this.methodApprover::approves)
+          .filter(this.methodApprover::isValid)
           .forEach(this.methodTransformer::transform);
 
       final byte[] bytecode = compiledClass.toBytecode();
@@ -75,7 +75,7 @@ final class InternalClassFileTransformer implements ClassFileTransformer {
   }
 
   static InternalClassFileTransformer create(
-      final InternalMethodApprover methodApprover,
+      final InternalMethodValidator methodApprover,
       final InternalMethodTransformer methodTransformer) {
 
     Preconditions.checkNotNull(methodApprover);
