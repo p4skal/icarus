@@ -16,6 +16,4 @@
 
 package io.github.icarus.cache;
 
-public class Cache {
-
-}
+public interface Cache {}
