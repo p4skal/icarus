@@ -23,12 +23,38 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * The {@code Expires} annotation introduces a {@code time to live} to result values of methods
+ * annotated with the {@code @Cached} annotation.
+ *
+ * <p>When a result value should be cached only for a specified amount of time, this annotation is
+ * needed. Since the cache is created by the framework and not the user, {@code Icarus} needs to now
+ * exactly how long to store cache results. When this annotation is absent whatsoever, the results
+ * will be cached without being removed because of their "age".
+ *
+ * @author Merlin Osayimwen
+ * @since 1.0
+ */
 @Documented
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Expires {
 
+  /**
+   * This value is the {@code TTL} of the {@code cached result value}.
+   *
+   * <p>The {@link Expires#timeUnit()} value is the matching unit to the {@code long} returned by
+   * this function.
+   *
+   * @return Amount of time, in the specified {@linkplain Expires#timeUnit() unit}, that the {@code
+   *     result} of a {@code caching} method is cached.
+   */
   long value();
 
+  /**
+   * Unit of the {@link Expires#value() time to live}.
+   *
+   * @return The TTLs unit.
+   */
   TimeUnit timeUnit() default TimeUnit.SECONDS;
 }
