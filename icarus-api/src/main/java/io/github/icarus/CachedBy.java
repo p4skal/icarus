@@ -39,5 +39,18 @@ import java.lang.annotation.Target;
 @Target(ElementType.PARAMETER)
 public @interface CachedBy {
 
+  /**
+   * Array of mapper functions which resolve the keys.
+   *
+   * <p>When left blank, the hashcode of the annotated parameters value is used to generate a hash.
+   * Otherwise, all given mapper functions are applied to the argument and the hash of all their
+   * results combined is used.
+   *
+   * <p>While allowing developers to use the framework more comfortable, applying this mappers is
+   * not safe and again, a more advanced feature in the framework. The functions are written as
+   * plain strings and not checked for error which introduces a point of failure to your software.
+   *
+   * @return Mapper functions which are invoked on the annotated parameters value.
+   */
   String[] value() default {};
 }
