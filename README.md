@@ -49,8 +49,9 @@ Following **Java** code shows how to implement *Icarus*:
     //... Scan the contents of the root
   }
 ```
-The code simply searches for Files and sub-directories and collects them.
+The code simply searches for files and sub-directories and collects them.
 This can take some time and you might want to remember the files within a root for some time.
+
 *Icarus* has a great feature, it allows you to return a lot of stuff even streams and it will
 still cache it in such a manner, that it can be reused. When you have worked with streams bevor, 
 you probably know that they can't be operated upon multiple times. It would be fatal to simply 
