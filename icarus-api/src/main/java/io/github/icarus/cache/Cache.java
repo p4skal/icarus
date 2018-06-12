@@ -16,6 +16,14 @@
 
 package io.github.icarus.cache;
 
+import java.util.Optional;
+
 public interface Cache {
+
+  void put(final int key, final CacheElement value);
+
+  Optional<CacheElement> get(final int key);
+
+  Optional<CacheElement> remove(final int key);
 
 }
