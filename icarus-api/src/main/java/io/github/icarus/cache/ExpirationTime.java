@@ -21,22 +21,56 @@ import io.github.icarus.Expires;
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * Represents the time an {@code CacheElement} is cached in a {@code Cache}.
+ *
+ * <p>To prevent {@code primitive Obsession}, the {@code expirationTime} is represented as its own
+ * type. Caches will use them two determine on when elements may be removed. Instances of the class
+ * may be compared to others and the common object methods have been overwritten so that they are
+ * representative and in order to make the {@code ExpirationTime} a real value object.
+ *
+ * @author Merlin Osayimwen
+ * @since 1.0
+ * @see Cache
+ * @see AbstractCacheFactory
+ */
 public class ExpirationTime implements Comparable<ExpirationTime> {
 
+  /** The default TimeUnit which is used as a fallback value. */
   private static final TimeUnit DEFAULT_UNIT = TimeUnit.MINUTES;
 
+  /** The amount of time in the set {@code unit}. */
   private final long value;
+
+  /** The {@code unit} in which the {@code value} is defined. */
   private final TimeUnit unit;
 
+  /**
+   * Parameterized constructor that initializes an {@code ExpirationTime} with all arguments
+   * available.
+   *
+   * @param value The amount of time.
+   * @param unit The Unit of the {@code amount}.
+   */
   private ExpirationTime(final long value, final TimeUnit unit) {
     this.value = value;
     this.unit = unit;
   }
 
+  /**
+   * The amount of time in the {@code unit}.
+   *
+   * @return Amount of time.
+   */
   public long getValue() {
     return value;
   }
 
+  /**
+   * The {@code unit} in which the {@code value} is defined.
+   *
+   * @return unit in which the value is defined.
+   */
   public TimeUnit getUnit() {
     return unit;
   }
@@ -81,6 +115,12 @@ public class ExpirationTime implements Comparable<ExpirationTime> {
     return Long.compareUnsigned(nanos, otherNanos);
   }
 
+  /**
+   * Creates the {@code ExpirationTime} instance from its related annotation.
+   *
+   * @param annotation Annotation that the class is constructed from.
+   * @return Created {@code ExpirationTime} instance.
+   */
   public static ExpirationTime from(final Expires annotation) {
     if (annotation == null) {
       throw new NullPointerException();
@@ -89,10 +129,23 @@ public class ExpirationTime implements Comparable<ExpirationTime> {
     return ExpirationTime.from(annotation.value(), annotation.timeUnit());
   }
 
+  /**
+   * Creates a new instance of the class with the given {@code value}.
+   *
+   * @param value The amount of time.
+   * @return Created instance of the class with the given {@code value}.
+   */
   public static ExpirationTime from(final long value) {
     return ExpirationTime.from(value, ExpirationTime.DEFAULT_UNIT);
   }
 
+  /**
+   * Creates a new instance of the class with the given {@code value} and {@code unit}.
+   *
+   * @param value The amount of time.
+   * @param unit The {@code values} unit.
+   * @return Created instance of the class with the given {@code value} and {@code unit}.
+   */
   public static ExpirationTime from(final long value, final TimeUnit unit) {
     if (unit == null) {
       throw new NullPointerException();

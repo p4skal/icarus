@@ -18,6 +18,14 @@ package io.github.icarus.cache;
 
 import java.util.Optional;
 
+/**
+ * Abstraction of the intern caches.
+ *
+ * @author Merlin Osayimwen
+ * @since 1.0
+ * @see AbstractCacheFactory
+ * @see CacheElement
+ */
 public interface Cache {
 
   void put(final int key, final CacheElement value);
@@ -25,5 +33,4 @@ public interface Cache {
   Optional<CacheElement> get(final int key);
 
   Optional<CacheElement> remove(final int key);
-
 }
