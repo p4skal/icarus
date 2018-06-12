@@ -16,6 +16,17 @@
 
 package io.github.icarus.internal;
 
-public class StructuredCachingProcessRevisorStep {
+import io.github.icarus.module.EntryDirection;
+import java.util.Optional;
+import java.util.function.Predicate;
+
+final class CachingProcessFilterStep extends AbstractStructuredCachingProcessStep {
+
+  private Predicate<?> predicate;
+
+  @Override
+  Optional<Object> applyTo(Object entry, EntryDirection direction) {
+    return Optional.empty();
+  }
 
 }
