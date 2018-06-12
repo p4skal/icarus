@@ -17,17 +17,16 @@
 package io.github.icarus.internal;
 
 import javassist.CtMethod;
-import javassist.CtNewMethod;
 
-final class InternalMethodTransformer {
+final class CachingMethodBytecodeReviser {
 
-  private InternalMethodTransformer() {}
+  private CachingMethodBytecodeReviser() {}
 
   void transform(final CtMethod method) {
 
   }
 
-  static InternalMethodTransformer create() {
-    return new InternalMethodTransformer();
+  static CachingMethodBytecodeReviser create() {
+    return new CachingMethodBytecodeReviser();
   }
 }

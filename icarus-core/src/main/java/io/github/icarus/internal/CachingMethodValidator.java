@@ -22,31 +22,31 @@ import javassist.CtClass;
 import javassist.CtMethod;
 import javassist.NotFoundException;
 
-final class InternalMethodValidator {
+final class CachingMethodValidator {
 
   private static final Stream<CtClass> DISALLOWED_RETURN_TYPES = Stream.of(CtClass.voidType);
   private static final Class<?> NEEDED_ANNOTATION = Cached.class;
 
-  private InternalMethodValidator() {}
+  private CachingMethodValidator() {}
 
   boolean isValid(final CtMethod method) {
     return this.approveAnnotations(method) && this.approveReturnType(method);
   }
 
   private boolean approveAnnotations(final CtMethod method) {
-    return method.hasAnnotation(InternalMethodValidator.NEEDED_ANNOTATION);
+    return method.hasAnnotation(CachingMethodValidator.NEEDED_ANNOTATION);
   }
 
   private boolean approveReturnType(final CtMethod method) {
     try {
       final CtClass returnType = method.getReturnType();
-      return InternalMethodValidator.DISALLOWED_RETURN_TYPES.anyMatch(returnType::equals);
+      return CachingMethodValidator.DISALLOWED_RETURN_TYPES.anyMatch(returnType::equals);
     } catch (final NotFoundException findingFailure) {
       return false;
     }
   }
 
-  static InternalMethodValidator create() {
-    return new InternalMethodValidator();
+  static CachingMethodValidator create() {
+    return new CachingMethodValidator();
   }
 }

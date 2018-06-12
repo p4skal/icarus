@@ -14,15 +14,8 @@
  * limitations under the License.
  */
 
-package io.github.icarus.internal;
+package io.github.icarus.internal.module;
 
-import java.lang.instrument.Instrumentation;
+public class CacheModuleExtractor {
 
-final class InternalAgent {
-
-  private InternalAgent() {}
-
-  private static void premain(final String arguments, final Instrumentation instrumentation) {
-    instrumentation.addTransformer(InternalClassFileTransformer.create());
-  }
 }

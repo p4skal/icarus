@@ -16,7 +16,6 @@
 
 package io.github.icarus.internal;
 
-import com.google.common.base.Preconditions;
 import java.lang.instrument.ClassFileTransformer;
 import java.security.ProtectionDomain;
 import java.util.Optional;
@@ -24,18 +23,18 @@ import java.util.stream.Stream;
 import javassist.ClassPool;
 import javassist.CtClass;
 
-final class InternalClassFileTransformer implements ClassFileTransformer {
+final class CachingClassBytecodeReviser implements ClassFileTransformer {
 
-  private final InternalMethodValidator methodApprover;
-  private final InternalMethodTransformer methodTransformer;
+  private final CachingMethodValidator methodApprover;
+  private final CachingMethodBytecodeReviser methodTransformer;
 
-  private InternalClassFileTransformer() {
-    this(InternalMethodValidator.create(), InternalMethodTransformer.create());
+  private CachingClassBytecodeReviser() {
+    this(CachingMethodValidator.create(), CachingMethodBytecodeReviser.create());
   }
 
-  private InternalClassFileTransformer(
-      final InternalMethodValidator methodApprover,
-      final InternalMethodTransformer methodTransformer) {
+  private CachingClassBytecodeReviser(
+      final CachingMethodValidator methodApprover,
+      final CachingMethodBytecodeReviser methodTransformer) {
 
     this.methodApprover = methodApprover;
     this.methodTransformer = methodTransformer;
@@ -70,17 +69,18 @@ final class InternalClassFileTransformer implements ClassFileTransformer {
     }
   }
 
-  static InternalClassFileTransformer create() {
-    return new InternalClassFileTransformer();
+  static CachingClassBytecodeReviser create() {
+    return new CachingClassBytecodeReviser();
   }
 
-  static InternalClassFileTransformer create(
-      final InternalMethodValidator methodApprover,
-      final InternalMethodTransformer methodTransformer) {
+  static CachingClassBytecodeReviser create(
+      final CachingMethodValidator methodApprover,
+      final CachingMethodBytecodeReviser methodTransformer) {
 
-    Preconditions.checkNotNull(methodApprover);
-    Preconditions.checkNotNull(methodTransformer);
+    if (methodApprover == null || methodTransformer == null) {
+      throw new NullPointerException();
+    }
 
-    return new InternalClassFileTransformer(methodApprover, methodTransformer);
+    return new CachingClassBytecodeReviser(methodApprover, methodTransformer);
   }
 }

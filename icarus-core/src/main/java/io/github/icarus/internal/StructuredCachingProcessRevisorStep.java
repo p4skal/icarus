@@ -14,10 +14,8 @@
  * limitations under the License.
  */
 
-package io.github.icarus.internal.cache;
+package io.github.icarus.internal;
 
-import io.github.icarus.cache.Cache;
-
-final class InternalEhCache implements Cache {
+public class StructuredCachingProcessRevisorStep {
 
 }
