@@ -21,7 +21,7 @@ import java.util.Optional;
 
 abstract class AbstractCachingProcessStep {
 
-  AbstractCachingProcessStep nextStep;
+  private AbstractCachingProcessStep nextStep;
 
   protected AbstractCachingProcessStep() {
     this(null);
