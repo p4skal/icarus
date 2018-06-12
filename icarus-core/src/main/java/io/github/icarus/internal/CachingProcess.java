@@ -22,9 +22,9 @@ import java.util.Optional;
 
 final class CachingProcess {
 
-  private final AbstractStructuredCachingProcessStep headStep;
+  private final AbstractCachingProcessStep headStep;
 
-  private CachingProcess(final AbstractStructuredCachingProcessStep headStep) {
+  private CachingProcess(final AbstractCachingProcessStep headStep) {
     this.headStep = headStep;
   }
 
@@ -38,7 +38,7 @@ final class CachingProcess {
 
   private Result runDirectional(final Object originalEntry, final EntryDirection direction) {
     // Iterates the steps and appliesx to entry to all of them.
-    AbstractStructuredCachingProcessStep currentStep = this.headStep;
+    AbstractCachingProcessStep currentStep = this.headStep;
     Object currentEntry = originalEntry;
     while (currentStep != null) {
       final Optional<Object> stepResult = currentStep.applyTo(currentEntry, direction);

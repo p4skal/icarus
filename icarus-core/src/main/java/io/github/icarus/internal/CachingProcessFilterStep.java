@@ -20,7 +20,7 @@ import io.github.icarus.module.EntryDirection;
 import java.util.Optional;
 import java.util.function.Predicate;
 
-final class CachingProcessFilterStep extends AbstractStructuredCachingProcessStep {
+final class CachingProcessFilterStep extends AbstractCachingProcessStep {
 
   private Predicate<?> predicate;
 

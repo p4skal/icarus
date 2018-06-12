@@ -19,7 +19,7 @@ package io.github.icarus.internal;
 import io.github.icarus.module.EntryDirection;
 import java.util.Optional;
 
-final class CachingProcessRevisorStep extends AbstractStructuredCachingProcessStep {
+final class CachingProcessRevisorStep extends AbstractCachingProcessStep {
 
   @Override
   Optional<Object> applyTo(Object entry, EntryDirection direction) {

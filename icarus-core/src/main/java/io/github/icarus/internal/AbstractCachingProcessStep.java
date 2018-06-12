@@ -16,6 +16,29 @@
 
 package io.github.icarus.internal;
 
-public class StructuredCachingProcess {
+import io.github.icarus.module.EntryDirection;
+import java.util.Optional;
 
+abstract class AbstractCachingProcessStep {
+
+  AbstractCachingProcessStep nextStep;
+
+  protected AbstractCachingProcessStep() {
+    this(null);
+  }
+
+  AbstractCachingProcessStep getNextStep() {
+    return this.nextStep;
+  }
+
+  void setNextStep(AbstractCachingProcessStep nextStep) {
+    this.nextStep = nextStep;
+  }
+
+  private AbstractCachingProcessStep(
+      final AbstractCachingProcessStep nextStep) {
+    this.nextStep = nextStep;
+  }
+
+  abstract Optional<Object> applyTo(final Object entry, final EntryDirection direction);
 }
