@@ -3,8 +3,6 @@ sudo: false
 language: java
 
 install: true
-script: ./mvnw clean install
-
 jdk: oraclejdk8
 
 cache:
