@@ -1,7 +1,7 @@
 # Icarus Framework
 
 
-[![Build](https://travis-ci.org/merlinosayimwen/icarus.svg?branch=master)](https://travis-ci.org/merlinosayimwen/icarus/builds)
+[![Build](https://travis-ci.org/merlinosayimwen/icarus.svg?branch=master)](https://travis-ci.org/merlinosayimwen/icarus)
 [![Java Version](https://img.shields.io/badge/java-v1.8-blue.svg)](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 [![Latest](https://img.shields.io/badge/latest-v1.0-blue.svg)](https://github.com/merlinosayimwen/icarus)
 [![License](https://img.shields.io/badge/license-apache--2.0-lightgrey.svg)](https://www.apache.org/licenses/LICENSE-2.0.html)
