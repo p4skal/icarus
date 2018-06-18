@@ -1,6 +1,12 @@
 sudo: false
 
 language: java
-jdk:
-  - oraclejdk8
-  - openjdk8
+
+install: true
+script: ./mvnw clean install
+
+jdk: oraclejdk8
+
+cache:
+  directories:
+    - $HOME/.m2
