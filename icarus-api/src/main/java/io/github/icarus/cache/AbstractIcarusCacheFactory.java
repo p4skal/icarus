@@ -17,28 +17,30 @@
 package io.github.icarus.cache;
 
 import java.util.Objects;
-import java.util.concurrent.Executor;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.function.Supplier;
 
 /**
- * Abstract-Factory used to create instances of a {@code Cache}.
+ * Abstract-Factory used to create instances of a {@code IcarusCache}.
  *
  * @author Merlin Osayimwen
- * @see Cache
+ * @see IcarusCache
  * @see ExpirationTime
  */
-public abstract class AbstractCacheFactory {
+public abstract class AbstractIcarusCacheFactory {
 
   protected ExpirationTime expirationTime;
-  protected Executor delegatedExecutor;
+  protected Supplier<ScheduledExecutorService> delegatedExecutor;
 
-  protected AbstractCacheFactory(
-      final ExpirationTime expirationTime, final Executor delegatedExecutor) {
+  protected AbstractIcarusCacheFactory(
+      final ExpirationTime expirationTime,
+      final Supplier<ScheduledExecutorService> delegatedExecutor) {
 
     this.expirationTime = expirationTime;
     this.delegatedExecutor = delegatedExecutor;
   }
 
-  public final void setExecutor(final Executor executor) {
+  public final void setExecutor(final Supplier<ScheduledExecutorService> executor) {
     this.delegatedExecutor = executor;
   }
 
@@ -46,7 +48,7 @@ public abstract class AbstractCacheFactory {
     this.expirationTime = expirationTime;
   }
 
-  public abstract Cache getInstance(final String name);
+  public abstract IcarusCache getInstance(final String name);
 
   @Override
   public int hashCode() {
@@ -72,11 +74,11 @@ public abstract class AbstractCacheFactory {
       return false;
     }
 
-    if (!(checkTarget instanceof AbstractCacheFactory)) {
+    if (!(checkTarget instanceof AbstractIcarusCacheFactory)) {
       return false;
     }
 
-    final AbstractCacheFactory otherFactory = (AbstractCacheFactory) checkTarget;
+    final AbstractIcarusCacheFactory otherFactory = (AbstractIcarusCacheFactory) checkTarget;
     return this.expirationTime.equals(otherFactory.expirationTime)
         && this.delegatedExecutor.equals(otherFactory.delegatedExecutor);
   }

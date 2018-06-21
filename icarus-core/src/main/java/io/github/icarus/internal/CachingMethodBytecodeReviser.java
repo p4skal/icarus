@@ -16,6 +16,10 @@
 
 package io.github.icarus.internal;
 
+import io.github.icarus.Icarus;
+import io.github.icarus.cache.IcarusCache;
+import java.util.Collection;
+import javassist.CannotCompileException;
 import javassist.CtMethod;
 
 final class CachingMethodBytecodeReviser {
@@ -23,10 +27,20 @@ final class CachingMethodBytecodeReviser {
   private CachingMethodBytecodeReviser() {}
 
   void transform(final CtMethod method) {
-
+    try {
+      method.insertBefore("{if()}");
+    } catch (final CannotCompileException exception) {
+    }
   }
 
   static CachingMethodBytecodeReviser create() {
     return new CachingMethodBytecodeReviser();
   }
+
+  private static void methodBody(String name,Collection<String> parameters) {
+    final long hash = 0;
+    final IcarusCache cache = Icarus.getNamedCache("name");
+    cache.
+  }
+
 }

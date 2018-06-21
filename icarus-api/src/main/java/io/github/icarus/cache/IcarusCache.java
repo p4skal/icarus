@@ -14,18 +14,23 @@
  * limitations under the License.
  */
 
-package io.github.icarus;
+package io.github.icarus.cache;
 
-import io.github.icarus.cache.IcarusCache;
+import java.util.Optional;
 
-public final class Icarus {
+/**
+ * Abstraction of the intern caches.
+ *
+ * @author Merlin Osayimwen
+ * @since 1.0
+ * @see AbstractIcarusCacheFactory
+ * @see IcarusCacheElement
+ */
+public interface IcarusCache {
 
-  private Icarus() throws IllegalAccessException {
-    throw new IllegalAccessException(
-        String.format("The %s class may not be constructed", this.getClass().getName()));
-  }
+  void put(final long key, final IcarusCacheElement value);
 
-  public static IcarusCache getNamedCache(final String name) {
-    return null;
-  }
+  Optional<IcarusCacheElement> get(final int key);
+
+  Optional<IcarusCacheElement> remove(final int key);
 }

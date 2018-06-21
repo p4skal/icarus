@@ -16,21 +16,10 @@
 
 package io.github.icarus.cache;
 
-import java.util.Optional;
+import java.util.Collection;
 
-/**
- * Abstraction of the intern caches.
- *
- * @author Merlin Osayimwen
- * @since 1.0
- * @see AbstractCacheFactory
- * @see CacheElement
- */
-public interface Cache {
+public class IcarusCacheKey {
 
-  void put(final int key, final CacheElement value);
-
-  Optional<CacheElement> get(final int key);
-
-  Optional<CacheElement> remove(final int key);
+  private final int hashCode;
+  private final Collection<Object> parameters;
 }

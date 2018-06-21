@@ -22,7 +22,7 @@ import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Represents the time an {@code CacheElement} is cached in a {@code Cache}.
+ * Represents the time an {@code IcarusCacheElement} is cached in a {@code IcarusCache}.
  *
  * <p>To prevent {@code primitive Obsession}, the {@code expirationTime} is represented as its own
  * type. Caches will use them two determine on when elements may be removed. Instances of the class
@@ -31,8 +31,8 @@ import java.util.concurrent.TimeUnit;
  *
  * @author Merlin Osayimwen
  * @since 1.0
- * @see Cache
- * @see AbstractCacheFactory
+ * @see IcarusCache
+ * @see AbstractIcarusCacheFactory
  */
 public class ExpirationTime implements Comparable<ExpirationTime> {
 

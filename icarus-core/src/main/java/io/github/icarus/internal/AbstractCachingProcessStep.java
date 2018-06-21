@@ -23,7 +23,7 @@ abstract class AbstractCachingProcessStep {
 
   private AbstractCachingProcessStep nextStep;
 
-  protected AbstractCachingProcessStep() {
+  AbstractCachingProcessStep() {
     this(null);
   }
 
@@ -35,8 +35,7 @@ abstract class AbstractCachingProcessStep {
     this.nextStep = nextStep;
   }
 
-  private AbstractCachingProcessStep(
-      final AbstractCachingProcessStep nextStep) {
+  private AbstractCachingProcessStep(final AbstractCachingProcessStep nextStep) {
     this.nextStep = nextStep;
   }
 

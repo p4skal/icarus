@@ -18,12 +18,12 @@ package io.github.icarus.cache;
 
 import java.util.Objects;
 
-public final class CacheElement {
+public final class IcarusCacheElement {
 
   private final long cacheTimestamp;
   private final Object value;
 
-  private CacheElement(final long cacheTimestamp, final Object value) {
+  private IcarusCacheElement(final long cacheTimestamp, final Object value) {
     this.value = value;
     this.cacheTimestamp = cacheTimestamp;
   }
@@ -58,20 +58,20 @@ public final class CacheElement {
       return false;
     }
 
-    if (!(checkTarget instanceof CacheElement)) {
+    if (!(checkTarget instanceof IcarusCacheElement)) {
       return false;
     }
 
-    final CacheElement otherElement = (CacheElement) checkTarget;
+    final IcarusCacheElement otherElement = (IcarusCacheElement) checkTarget;
     return this.cacheTimestamp == otherElement.cacheTimestamp
         && this.value.equals(otherElement.value);
   }
 
-  public static CacheElement from(final long cacheTimestamp, final Object value) {
+  public static IcarusCacheElement from(final long cacheTimestamp, final Object value) {
     if (value == null) {
       throw new NullPointerException();
     }
 
-    return new CacheElement(cacheTimestamp, value);
+    return new IcarusCacheElement(cacheTimestamp, value);
   }
 }

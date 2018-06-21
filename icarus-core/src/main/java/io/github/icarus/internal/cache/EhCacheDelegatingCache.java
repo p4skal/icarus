@@ -16,26 +16,22 @@
 
 package io.github.icarus.internal.cache;
 
-import io.github.icarus.cache.Cache;
-import io.github.icarus.cache.CacheElement;
+import io.github.icarus.cache.IcarusCache;
+import io.github.icarus.cache.IcarusCacheElement;
 import java.util.Optional;
 
-final class EhCacheDelegatingCache implements Cache {
+final class EhCacheDelegatingCache implements IcarusCache {
 
   @Override
-  public void put(int key, CacheElement value) {
-
-  }
+  public void put(final int key, final IcarusCacheElement value) {}
 
   @Override
-  public Optional<CacheElement> get(int key) {
+  public Optional<IcarusCacheElement> get(final int key) {
     return Optional.empty();
   }
 
   @Override
-  public Optional<CacheElement> remove(int key) {
+  public Optional<IcarusCacheElement> remove(final int key) {
     return Optional.empty();
   }
-
-
 }
